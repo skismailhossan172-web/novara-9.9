@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOVARA 9.9 | Fashion for Everyone</title>
+<title>NOVA FASHION | Fashion for Everyone</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,sans-serif;background:#fff8fb;color:#29202a}
@@ -14,21 +13,38 @@ header{background:#fff;padding:15px;position:sticky;top:0;z-index:5;box-shadow:0
 .search{width:100%;padding:12px;border:1px solid #ead4df;border-radius:25px;margin-top:12px}
 nav{display:flex;justify-content:space-around;padding:12px 4px;background:#fff;gap:8px;overflow:auto}
 nav a{color:#74304e;text-decoration:none;font-size:13px;white-space:nowrap}
-.hero{margin:15px;padding:25px 18px;border-radius:18px;background:linear-gradient(135deg,#f8c9dd,#f8e6c6);text-align:center}
-.hero h1{font-size:27px;color:#76274d;margin-bottom:10px}
-.hero p{line-height:1.6;margin-bottom:15px}
-.btn{display:inline-block;background:#a52d66;color:white;padding:12px 22px;border:0;border-radius:25px;text-decoration:none;font-weight:bold}
+
+/* দ্রুতগতির ৪টি ব্যানারের স্লাইডার (০.৫ সেকেন্ড পরপর অটো-চেঞ্জ) */
+.banner-container{margin:15px;border-radius:18px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.15);position:relative}
+.banner-wrapper{display:flex;width:100%;transition:transform 0.2s ease-in-out}
+.banner-slide{min-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#000}
+.banner-slide img{width:100%;height:auto;object-fit:cover;display:block}
+
 .section{padding:18px}
 .section h2{font-size:21px;margin-bottom:15px;color:#74304e}
 .categories{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.category{background:#fff;padding:18px 5px;border-radius:13px;text-align:center;box-shadow:0 2px 10px #0001;font-weight:bold;color:#74304e}
+.category{background:#fff;padding:18px 5px;border-radius:13px;text-align:center;box-shadow:0 2px 10px #0001;font-weight:bold;color:#74304e;text-decoration:none}
 .category span{display:block;font-size:28px;margin-bottom:8px}
 .products{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .product{background:white;border-radius:14px;padding:10px;box-shadow:0 2px 10px #0001}
 .product img{width:100%;height:145px;object-fit:cover;border-radius:10px;background:#f5e5ec}
 .product h3{font-size:14px;margin:9px 0}
 .price{color:#a52d66;font-weight:bold;margin-bottom:9px}
-.product button{width:100%;border:0;background:#a52d66;color:white;padding:10px;border-radius:20px}
+.product button{width:100%;border:0;background:#a52d66;color:white;padding:10px;border-radius:20px;cursor:pointer}
+
+/* পেমেন্ট ও যোগাযোগের সেকশন */
+.unified-payment{margin:18px;padding:24px;background:white;border-radius:20px;box-shadow:0 5px 15px rgba(181,45,112,0.1);border:1px solid #f0d5e1;text-align:center}
+.up-title{color:#74304e;font-size:19px;margin-bottom:6px;font-weight:800}
+.up-subtitle{color:#9c6a7e;font-size:13px;margin-bottom:15px}
+.unified-number{display:inline-block;background:linear-gradient(135deg,#f5e5ec,#fce8f0);padding:14px 28px;border-radius:50px;border:2px solid #b52d70;font-size:22px;font-weight:bold;color:#74304e;margin-bottom:20px;letter-spacing:1px;text-decoration:none}
+.methods-grid{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.method-badge{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:25px;color:white;font-weight:600;font-size:13px}
+.m-bkash{background:#e2136e}
+.m-nagad{background:#f7931e}
+.m-rocket{background:#8c3494}
+.m-whatsapp{background:#25D366}
+.dot{width:8px;height:8px;background:white;border-radius:50%}
+
 .promo{margin:15px;padding:23px;border-radius:16px;background:#f4dfc5;text-align:center;color:#713c28}
 footer{background:#54263f;color:white;text-align:center;padding:25px 15px;line-height:2}
 .bottom{position:sticky;bottom:0;background:white;display:flex;justify-content:space-around;padding:12px 2px;box-shadow:0 -2px 10px #0001}
@@ -38,7 +54,7 @@ footer{background:#54263f;color:white;text-align:center;padding:25px 15px;line-h
 <body>
 
 <header>
-<div class="logo">NOVARA 9.9</div>
+<div class="logo">NOVA FASHION</div>
 <div class="tag">FASHION FOR EVERYONE</div>
 <input class="search" id="search" placeholder="পছন্দের পোশাক খুঁজুন..." oninput="searchProducts()">
 </header>
@@ -51,11 +67,20 @@ footer{background:#54263f;color:white;text-align:center;padding:25px 15px;line-h
 <a href="#products">Shop</a>
 </nav>
 
-<section class="hero" id="home">
-<h1>Fashion for Everyone</h1>
-<p>আপনার পছন্দের ফ্যাশন এখন এক ঠিকানায়।<br>স্টাইল হোক প্রতিদিনের সঙ্গী।</p>
-<a href="#products" class="btn">SHOP NOW</a>
-<p style="margin-top:15px;font-weight:bold">SPECIAL COLLECTION • NOVARA 9.9</p>
+<!-- ৪টি ব্যানার একত্রিত করে দ্রুতগামী স্লাইডার -->
+<section class="banner-container" id="home">
+<div class="banner-wrapper" id="sliderWrapper">
+  <!-- প্রথম স্লাইড: আপনার পাঠানো ২টি ব্যানার -->
+  <div class="banner-slide">
+    <img src="74206.png" alt="NOVA FASHION Banner 1">
+    <img src="74196.png" alt="NOVA FASHION Banner 2">
+  </div>
+  <!-- দ্বিতীয় স্লাইড: নতুন ২টি রেডিমেড স্টাইলিশ অনলাইন ব্যানার -->
+  <div class="banner-slide">
+    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800" alt="Online Fashion Banner 1">
+    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=800" alt="Online Fashion Banner 2">
+  </div>
+</div>
 </section>
 
 <section class="section">
@@ -105,17 +130,29 @@ footer{background:#54263f;color:white;text-align:center;padding:25px 15px;line-h
 </div>
 </section>
 
+<!-- পেমেন্ট ও যোগাযোগের অফিশিয়াল সেকশন -->
+<section class="unified-payment">
+<div class="up-title">💳 পেমেন্ট ও অর্ডার কনফার্মেশন</div>
+<div class="up-subtitle">সকল সার্ভিসের জন্য একটিমাত্র অফিশিয়াল নম্বর</div>
+<a href="https://wa.me/8801836072608" class="unified-number" target="_blank">📞 01836072608</a>
+<div class="methods-grid">
+<div class="method-badge m-bkash"><span class="dot"></span> বিকাশ</div>
+<div class="method-badge m-nagad"><span class="dot"></span> নগদ</div>
+<div class="method-badge m-rocket"><span class="dot"></span> রকেট</div>
+<div class="method-badge m-whatsapp"><span class="dot"></span> WhatsApp</div>
+</div>
+</section>
+
 <section class="promo">
-<h2>WELCOME TO NOVARA 9.9</h2>
+<h2>WELCOME TO NOVA FASHION</h2>
 <p>নতুন কালেকশন, নতুন স্টাইল।</p>
 </section>
 
 <footer>
-<h2>NOVARA 9.9</h2>
+<h2>NOVA FASHION</h2>
 <p>Fashion for Everyone</p>
-<p>Customer Support</p>
-<p>Return & Exchange Policy</p>
-<p>© 2026 NOVARA 9.9. All Rights Reserved.</p>
+<p>Owner: M D Ismail Hossain</p>
+<p>© 2026 NOVA FASHION. All Rights Reserved.</p>
 </footer>
 
 <div class="bottom">
@@ -127,19 +164,28 @@ footer{background:#54263f;color:white;text-align:center;padding:25px 15px;line-h
 </div>
 
 <script>
+// ০.৫ সেকেন্ড (৫০০ মিলিসেকেন্ড) পর পর স্লাইড অটো-চেঞ্জ করার স্ক্রিপ্ট
+let currentIndex = 0;
+const wrapper = document.getElementById('sliderWrapper');
+const totalSlides = 2;
+
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % totalSlides;
+  wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+}, 500);
+
 let cart=[];
 function addCart(name){
-cart.push(name);
-alert(name+" কার্টে যোগ হয়েছে। মোট পণ্য: "+cart.length);
+  cart.push(name);
+  alert(name+" কার্টে যোগ হয়েছে। মোট পণ্য: "+cart.length);
 }
 function searchProducts(){
-let q=document.getElementById('search').value.toLowerCase();
-document.querySelectorAll('.product').forEach(p=>{
-p.style.display=p.innerText.toLowerCase().includes(q)?"block":"none";
-});
+  let q=document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.product').forEach(p=>{
+    p.style.display=p.innerText.toLowerCase().includes(q)?"block":"none";
+  });
 }
 </script>
 </body>
-                                              </html>
-
-
+  </html>
+  
