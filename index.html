@@ -1,1 +1,145 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVARA 9.9 | Fashion for Everyone</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#fff8fb;color:#29202a}
+header{background:#fff;padding:15px;position:sticky;top:0;z-index:5;box-shadow:0 2px 10px #0001}
+.logo{text-align:center;color:#b52d70;font-size:27px;font-weight:900;letter-spacing:2px}
+.tag{text-align:center;color:#a47b48;font-size:11px;margin:4px}
+.search{width:100%;padding:12px;border:1px solid #ead4df;border-radius:25px;margin-top:12px}
+nav{display:flex;justify-content:space-around;padding:12px 4px;background:#fff;gap:8px;overflow:auto}
+nav a{color:#74304e;text-decoration:none;font-size:13px;white-space:nowrap}
+.hero{margin:15px;padding:25px 18px;border-radius:18px;background:linear-gradient(135deg,#f8c9dd,#f8e6c6);text-align:center}
+.hero h1{font-size:27px;color:#76274d;margin-bottom:10px}
+.hero p{line-height:1.6;margin-bottom:15px}
+.btn{display:inline-block;background:#a52d66;color:white;padding:12px 22px;border:0;border-radius:25px;text-decoration:none;font-weight:bold}
+.section{padding:18px}
+.section h2{font-size:21px;margin-bottom:15px;color:#74304e}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.category{background:#fff;padding:18px 5px;border-radius:13px;text-align:center;box-shadow:0 2px 10px #0001;font-weight:bold;color:#74304e}
+.category span{display:block;font-size:28px;margin-bottom:8px}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.product{background:white;border-radius:14px;padding:10px;box-shadow:0 2px 10px #0001}
+.product img{width:100%;height:145px;object-fit:cover;border-radius:10px;background:#f5e5ec}
+.product h3{font-size:14px;margin:9px 0}
+.price{color:#a52d66;font-weight:bold;margin-bottom:9px}
+.product button{width:100%;border:0;background:#a52d66;color:white;padding:10px;border-radius:20px}
+.promo{margin:15px;padding:23px;border-radius:16px;background:#f4dfc5;text-align:center;color:#713c28}
+footer{background:#54263f;color:white;text-align:center;padding:25px 15px;line-height:2}
+.bottom{position:sticky;bottom:0;background:white;display:flex;justify-content:space-around;padding:12px 2px;box-shadow:0 -2px 10px #0001}
+.bottom a{text-decoration:none;color:#74304e;font-size:12px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">NOVARA 9.9</div>
+<div class="tag">FASHION FOR EVERYONE</div>
+<input class="search" id="search" placeholder="পছন্দের পোশাক খুঁজুন..." oninput="searchProducts()">
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#men">Men</a>
+<a href="#women">Women</a>
+<a href="#kids">Kids</a>
+<a href="#products">Shop</a>
+</nav>
+
+<section class="hero" id="home">
+<h1>Fashion for Everyone</h1>
+<p>আপনার পছন্দের ফ্যাশন এখন এক ঠিকানায়।<br>স্টাইল হোক প্রতিদিনের সঙ্গী।</p>
+<a href="#products" class="btn">SHOP NOW</a>
+<p style="margin-top:15px;font-weight:bold">SPECIAL COLLECTION • NOVARA 9.9</p>
+</section>
+
+<section class="section">
+<h2>Our Categories</h2>
+<div class="categories">
+<a class="category" href="#men"><span>👔</span>Men</a>
+<a class="category" href="#women"><span>👗</span>Women</a>
+<a class="category" href="#kids"><span>🧒</span>Kids</a>
+<a class="category" href="#products"><span>👟</span>Shoes</a>
+<a class="category" href="#products"><span>👜</span>Bags</a>
+<a class="category" href="#products"><span>⌚</span>Accessories</a>
+</div>
+</section>
+
+<section class="section" id="products">
+<h2>Our Collection</h2>
+<div class="products" id="productList">
+
+<div class="product" id="men">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500" alt="Men T-shirt">
+<h3>Men's Fashion T-Shirt</h3>
+<div class="price">৳ ৫৫০</div>
+<button onclick="addCart('Men T-Shirt')">Add to Cart</button>
+</div>
+
+<div class="product" id="women">
+<img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=500" alt="Women's fashion">
+<h3>Women's Fashion</h3>
+<div class="price">৳ ৮৫০</div>
+<button onclick="addCart('Women Fashion')">Add to Cart</button>
+</div>
+
+<div class="product" id="kids">
+<img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=500" alt="Kids fashion">
+<h3>Kids Collection</h3>
+<div class="price">৳ ৪৫০</div>
+<button onclick="addCart('Kids Collection')">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Shoes">
+<h3>Fashion Shoes</h3>
+<div class="price">৳ ১২০০</div>
+<button onclick="addCart('Fashion Shoes')">Add to Cart</button>
+</div>
+
+</div>
+</section>
+
+<section class="promo">
+<h2>WELCOME TO NOVARA 9.9</h2>
+<p>নতুন কালেকশন, নতুন স্টাইল।</p>
+</section>
+
+<footer>
+<h2>NOVARA 9.9</h2>
+<p>Fashion for Everyone</p>
+<p>Customer Support</p>
+<p>Return & Exchange Policy</p>
+<p>© 2026 NOVARA 9.9. All Rights Reserved.</p>
+</footer>
+
+<div class="bottom">
+<a href="#home">🏠 Home</a>
+<a href="#products">🛍️ Shop</a>
+<a href="#products">❤️ Wishlist</a>
+<a href="#home">👤 Account</a>
+<a href="#home">☰ More</a>
+</div>
+
+<script>
+let cart=[];
+function addCart(name){
+cart.push(name);
+alert(name+" কার্টে যোগ হয়েছে। মোট পণ্য: "+cart.length);
+}
+function searchProducts(){
+let q=document.getElementById('search').value.toLowerCase();
+document.querySelectorAll('.product').forEach(p=>{
+p.style.display=p.innerText.toLowerCase().includes(q)?"block":"none";
+});
+}
+</script>
+</body>
+                                              </html>
+</html>
+</html>
