@@ -14,11 +14,11 @@ header{background:#fff;padding:15px;position:sticky;top:0;z-index:5;box-shadow:0
 nav{display:flex;justify-content:space-around;padding:12px 4px;background:#fff;gap:8px;overflow:auto}
 nav a{color:#74304e;text-decoration:none;font-size:13px;white-space:nowrap}
 
-/* দ্রুতগতির ৪টি ব্যানারের স্লাইডার (০.৫ সেকেন্ড পরপর অটো-চেঞ্জ) */
+/* ৪টি ব্যানারের স্লাইডার (১টি করে ছবি ৩ সেকেন্ড পর পর অটো-চেঞ্জ) */
 .banner-container{margin:15px;border-radius:18px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.15);position:relative}
-.banner-wrapper{display:flex;width:100%;transition:transform 0.2s ease-in-out}
-.banner-slide{min-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#000}
-.banner-slide img{width:100%;height:auto;object-fit:cover;display:block}
+.banner-wrapper{display:flex;width:100%;transition:transform 0.4s ease-in-out}
+.banner-slide{min-width:100%;background:#000}
+.banner-slide img{width:100%;height:auto;max-height:400px;object-fit:cover;display:block}
 
 .section{padding:18px}
 .section h2{font-size:21px;margin-bottom:15px;color:#74304e}
@@ -67,18 +67,24 @@ footer{background:#54263f;color:white;text-align:center;padding:25px 15px;line-h
 <a href="#products">Shop</a>
 </nav>
 
-<!-- ৪টি ব্যানার একত্রিত করে দ্রুতগামী স্লাইডার -->
+<!-- ৪টি আলাদা ব্যানারের অটো-স্লাইডার (অনলাইন ১ -> আপনার ছবি ১ -> অনলাইন ২ -> আপনার ছবি ২) -->
 <section class="banner-container" id="home">
 <div class="banner-wrapper" id="sliderWrapper">
-  <!-- প্রথম স্লাইড: আপনার পাঠানো ২টি ব্যানার -->
+  <!-- ১ম ব্যানার: অনলাইন ছবি ১ -->
   <div class="banner-slide">
-    <img src="74206.png" alt="NOVA FASHION Banner 1">
-    <img src="74196.png" alt="NOVA FASHION Banner 2">
+    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1000" alt="Online Fashion Banner 1">
   </div>
-  <!-- দ্বিতীয় স্লাইড: নতুন ২টি রেডিমেড স্টাইলিশ অনলাইন ব্যানার -->
+  <!-- ২য় ব্যানার: আপনার দেওয়া প্রথম ছবি (74204.png) -->
   <div class="banner-slide">
-    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800" alt="Online Fashion Banner 1">
-    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=800" alt="Online Fashion Banner 2">
+    <img src="74204.png" alt="NOVA FASHION Banner 1">
+  </div>
+  <!-- ৩য় ব্যানার: অনলাইন ছবি ২ -->
+  <div class="banner-slide">
+    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=1000" alt="Online Fashion Banner 2">
+  </div>
+  <!-- ৪র্থ ব্যানার: আপনার দেওয়া দ্বিতীয় ছবি (74206.png) -->
+  <div class="banner-slide">
+    <img src="74206.png" alt="NOVA FASHION Banner 2">
   </div>
 </div>
 </section>
@@ -164,15 +170,15 @@ footer{background:#54263f;color:white;text-align:center;padding:25px 15px;line-h
 </div>
 
 <script>
-// ০.৫ সেকেন্ড (৫০০ মিলিসেকেন্ড) পর পর স্লাইড অটো-চেঞ্জ করার স্ক্রিপ্ট
+// ৩ সেকেন্ড পর পর ৪টি ব্যানার পর্যায়ক্রমে স্লাইড হওয়ার স্ক্রিপ্ট
 let currentIndex = 0;
 const wrapper = document.getElementById('sliderWrapper');
-const totalSlides = 2;
+const totalSlides = 4;
 
 setInterval(() => {
   currentIndex = (currentIndex + 1) % totalSlides;
   wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-}, 500);
+}, 3000);
 
 let cart=[];
 function addCart(name){
@@ -187,5 +193,5 @@ function searchProducts(){
 }
 </script>
 </body>
-  </html>
+                    </html>
   
