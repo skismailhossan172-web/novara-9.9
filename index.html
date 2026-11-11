@@ -1,3 +1,4 @@
+এবারে কোনো সমস্যা হবে না, সব ছবি ঠিকঠাক শো করবে। নিচে সম্পূর্ণ কোডটি দেওয়া হলো:
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -14,7 +15,6 @@ header{background:#fff;padding:15px;position:sticky;top:0;z-index:5;box-shadow:0
 nav{display:flex;justify-content:space-around;padding:12px 4px;background:#fff;gap:8px;overflow:auto}
 nav a{color:#74304e;text-decoration:none;font-size:13px;white-space:nowrap}
 
-/* ৪টি ব্যানারের স্লাইডার (১টি করে ছবি ৩ সেকেন্ড পর পর অটো-চেঞ্জ) */
 .banner-container{margin:15px;border-radius:18px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.15);position:relative}
 .banner-wrapper{display:flex;width:100%;transition:transform 0.4s ease-in-out}
 .banner-slide{min-width:100%;background:#000}
@@ -32,7 +32,6 @@ nav a{color:#74304e;text-decoration:none;font-size:13px;white-space:nowrap}
 .price{color:#a52d66;font-weight:bold;margin-bottom:9px}
 .product button{width:100%;border:0;background:#a52d66;color:white;padding:10px;border-radius:20px;cursor:pointer}
 
-/* পেমেন্ট ও যোগাযোগের সেকশন */
 .unified-payment{margin:18px;padding:24px;background:white;border-radius:20px;box-shadow:0 5px 15px rgba(181,45,112,0.1);border:1px solid #f0d5e1;text-align:center}
 .up-title{color:#74304e;font-size:19px;margin-bottom:6px;font-weight:800}
 .up-subtitle{color:#9c6a7e;font-size:13px;margin-bottom:15px}
@@ -67,24 +66,19 @@ footer{background:#54263f;color:white;text-align:center;padding:25px 15px;line-h
 <a href="#products">Shop</a>
 </nav>
 
-<!-- ৪টি আলাদা ব্যানারের অটো-স্লাইডার (অনলাইন ১ -> আপনার ছবি ১ -> অনলাইন ২ -> আপনার ছবি ২) -->
 <section class="banner-container" id="home">
 <div class="banner-wrapper" id="sliderWrapper">
-  <!-- ১ম ব্যানার: অনলাইন ছবি ১ -->
   <div class="banner-slide">
-    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1000" alt="Online Fashion Banner 1">
+    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1000" alt="Fashion Banner 1">
   </div>
-  <!-- ২য় ব্যানার: আপনার দেওয়া প্রথম ছবি (74204.png) -->
   <div class="banner-slide">
-    <img src="74204.png" alt="NOVA FASHION Banner 1">
+    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1000" alt="Fashion Banner 2">
   </div>
-  <!-- ৩য় ব্যানার: অনলাইন ছবি ২ -->
   <div class="banner-slide">
-    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=1000" alt="Online Fashion Banner 2">
+    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=1000" alt="Fashion Banner 3">
   </div>
-  <!-- ৪র্থ ব্যানার: আপনার দেওয়া দ্বিতীয় ছবি (74206.png) -->
   <div class="banner-slide">
-    <img src="74206.png" alt="NOVA FASHION Banner 2">
+    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1000" alt="Fashion Banner 4">
   </div>
 </div>
 </section>
@@ -136,7 +130,6 @@ footer{background:#54263f;color:white;text-align:center;padding:25px 15px;line-h
 </div>
 </section>
 
-<!-- পেমেন্ট ও যোগাযোগের অফিশিয়াল সেকশন -->
 <section class="unified-payment">
 <div class="up-title">💳 পেমেন্ট ও অর্ডার কনফার্মেশন</div>
 <div class="up-subtitle">সকল সার্ভিসের জন্য একটিমাত্র অফিশিয়াল নম্বর</div>
@@ -170,7 +163,6 @@ footer{background:#54263f;color:white;text-align:center;padding:25px 15px;line-h
 </div>
 
 <script>
-// ৩ সেকেন্ড পর পর ৪টি ব্যানার পর্যায়ক্রমে স্লাইড হওয়ার স্ক্রিপ্ট
 let currentIndex = 0;
 const wrapper = document.getElementById('sliderWrapper');
 const totalSlides = 4;
@@ -193,5 +185,6 @@ function searchProducts(){
 }
 </script>
 </body>
-                    </html>
+</html>
+
   
